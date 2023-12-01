@@ -19,14 +19,6 @@ try {
         $statusDB = $ligacao -> getAttribute(PDO::ATTR_CONNECTION_STATUS);
         echo "Conexão efetuada com sucesso";
 
-        // $query = "SELECT * FROM usuarios";
-        // $result = $ligacao -> query($query);
-        // showArray($result);
-        // showArray($query);
-
-        // $exeQuery = $result -> fetchAll(PDO::FETCH_ASSOC);
-        // showArray($exeQuery);
-
     }
     
     

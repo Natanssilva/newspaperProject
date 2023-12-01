@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <body class="bg-gray-800 min-h-screen flex items-center justify-center ">
+    <body class="bg-black-800 min-h-screen flex items-center justify-center ">
 
         <h1 class="text-2xl text-white text-center absolute top-10 w-full animate__animated animate__backInRight ">Seja
             Bem vindo ao Newspaper !</h1>
