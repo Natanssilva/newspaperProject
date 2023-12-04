@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Newspaper</title>
     <link rel="stylesheet" href="../dist/output.css">
+    <script src="../js/cadastro.js" defer></script>
 
     <script src="../js/password.js" defer></script>
 
@@ -28,8 +29,6 @@
                 <label for="sobrenome" class="block text-gray-700 text-sm font-semibold mb-2">Sobrenome</label>
 
                 <input type="text" id="sobrenome" name="sobrenome" class="input w-full bg-white" placeholder="sobrenome">
-
-                <p class="error-message text-red-700"></p>
             </div>
             <div class="mb-4">
                 <label for="email" class="block text-gray-700 text-sm font-semibold mb-2">Email</label>
@@ -51,13 +50,15 @@
                 </div>
             </div>
             <div class="text-center">
-                <button id="button-submit" type="submit" class="btn bg-black hover:bg-white text-white hover:text-black font-bold py-1 px-4 border-b-4 border-black  rounded w-full py-1">Entrar</button>
+                <button id="button-submit" type="submit" class="btn bg-black hover:bg-white text-white hover:text-black font-bold py-1 px-4 border-b-4 border-black  rounded w-full py-1">Cadastre-se</button>
             </div>
         </form>
         <div class="mt-4">
             <p class="text-gray-600 px-2 ">Já possui login? <a href="index.php" class="hover:underline text-black-500">Faça Login agora mesmo</a></p>
         </div>
-
+        <div class=" right-2 top-0 mt-2">
+            <p id="error-email" class="error-message text-red-700"></p>
+        </div>
 
 </body>
 

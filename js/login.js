@@ -47,7 +47,8 @@ myForm = document
 
     fetch('processa_login.php', {
         method: 'POST',
-        body: new URLSearchParams(new FormData(myForm))
+        body: new URLSearchParams(document
+          .querySelector("#form"))
     })
     .then((response) => response.json())
     .then((response) =>{
