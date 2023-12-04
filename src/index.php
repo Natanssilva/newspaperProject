@@ -8,6 +8,8 @@
     <title>Newspaper</title>
     <link rel="stylesheet" href="../dist/output.css">
     <script src="../js/login.js" defer></script>
+    <script src="../js/password.js" defer></script>
+
 </head>
 
 <body class="bg-black-800 min-h-screen flex items-center justify-center">
@@ -32,9 +34,9 @@
                         <input type="password" id="senha" name="senha" class="input w-full bg-white" placeholder="********">
 
                         <div class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer">
-                            <div class="flex items-center h-full"> <!-- Altura fixa para o contêiner -->
+                            <div class="flex items-center h-full"> 
                                 <img class="hide-password" src="../image/icons8-hide-password-30.png" alt="hide-password">
-                                <img class="show-password hidden" src="../image/icons8-hide-password-30.png" alt="show-password">
+                                <img class="show-password hidden" src="../image/icons8-show-password-30.png" alt="show-password">
                             </div>
                         </div>
                     </div>

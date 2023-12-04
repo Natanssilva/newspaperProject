@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Newspaper</title>
     <link rel="stylesheet" href="../dist/output.css">
+
+    <script src="../js/password.js" defer></script>
+
 </head>
 
 <body class="bg-black-800 min-h-screen flex items-center justify-center">
@@ -17,14 +20,14 @@
             <div class="mb-4">
                 <label for="nome" class="block text-gray-700 text-sm font-semibold mb-2">Nome</label>
 
-                <input type="text" id="nome" name="nome" class="input w-full bg-white" placeholder="seuemail@exemplo.com">
+                <input type="text" id="nome" name="nome" class="input w-full bg-white" placeholder="nome">
 
                 <p class="error-message text-red-700"></p>
             </div>
             <div class="mb-4">
                 <label for="sobrenome" class="block text-gray-700 text-sm font-semibold mb-2">Sobrenome</label>
 
-                <input type="text" id="sobrenome" name="sobrenome" class="input w-full bg-white" placeholder="seuemail@exemplo.com">
+                <input type="text" id="sobrenome" name="sobrenome" class="input w-full bg-white" placeholder="sobrenome">
 
                 <p class="error-message text-red-700"></p>
             </div>
@@ -42,7 +45,7 @@
                     <input type="password" id="senha" name="senha" class="input w-full bg-white" placeholder="********">
                     <div class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer">
                         <img class="hide-password" src="../image/icons8-hide-password-30.png" alt="hide-password">
-                        <img class="show-password hidden" src="../image/icons8-hide-password-30.png" alt="show-password">
+                        <img class="show-password hidden" src="../image/icons8-show-password-30.png" alt="show-password">
                     </div>
                     <p class="erro-login text-red-700"></p>
                 </div>
