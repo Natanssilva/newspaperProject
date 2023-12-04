@@ -45,14 +45,6 @@ myForm = document
     inputEmail.style.border = validarEmail ? '1px solid red' : '';
     inputSenha.style.border = validarSenha ? '1px solid red' : '';
 
-    fetch('processa_login.php', {
-        method: 'POST',
-        body: new URLSearchParams(document
-          .querySelector("#form"))
-    })
-    .then((response) => response.json())
-    .then((response) =>{
-        console.log(response)
-    } )
+    fetch()
 
   });
