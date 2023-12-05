@@ -23,7 +23,7 @@ myForm = document
     inputEmail.style.border = validarEmail ? '1px solid red' : '';
 
     // Mensagem de sucesso em um div adicional
-    const sucessoDiv = document.querySelector("#sucess-div");
+    const feedback = document.querySelector("#sucess-div");
 
     if (!mensagemErroEmail) {
       button.setAttribute('disabled', 'true')
@@ -41,7 +41,7 @@ myForm = document
         .then((response) => {
           if (response.status == 'true') {
             // Exibir mensagem de sucesso
-            sucessoDiv.innerHTML = `<div role="alert" class="alert alert-success">
+            feedback.innerHTML = `<div role="alert" class="alert alert-success">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                     </svg>
@@ -50,17 +50,31 @@ myForm = document
 
             // Aguarde um momento antes de remover a mensagem de sucesso e redirecionar
             setTimeout(function removerAnimação() {
-              sucessoDiv.innerHTML = ''; // Remover a mensagem de sucesso
+              feedback.innerHTML = ''; // Remover a mensagem de sucesso
               button.innerHTML = 'Atualizar'
               button.removeAttribute('disabled')
               document.querySelector('#form').submit()
               window.location.href = response.redirect; // Redirecionando para a home (página do usuário)
             }, 2800);
-          } else {
+          }else if(response.status == 'E2'){
             setTimeout(function erroDb() {
               button.innerHTML = 'Atualizar'
               button.removeAttribute('disabled')
-              mensagemErroEmail.innerHTML = `<div role="alert" class="alert alert-error">
+              feedback.innerHTML = `<div role="alert" class="alert alert-error">
+                                          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+                                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                          </svg>
+                                          <span class="text-red-700">${response.message}</span>
+                                      </div>`;
+            }, 2000);
+          }
+          
+          
+          else {
+            setTimeout(function erroDb() {
+              button.innerHTML = 'Atualizar'
+              button.removeAttribute('disabled')
+              feedback.innerHTML = `<div role="alert" class="alert alert-error">
                                           <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
                                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                           </svg>

@@ -36,6 +36,9 @@
         <div class=" right-2 top-0 mt-2">
             <p id="sucess-div" class="error-message text-red-700"></p>
         </div>
+        <div class=" right-2 top-0 mt-2">
+            <p id="error-div" class="error-message text-red-700"></p>
+        </div>
 
 </body>
 

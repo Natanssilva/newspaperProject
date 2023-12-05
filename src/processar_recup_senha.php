@@ -1,6 +1,9 @@
 <?php
     // session_start();
+    require __DIR__ . '/../vendor/autoload.php'; //incluir composer
+
     require_once 'bd.php';
+    include_once '../biblioteca/funcoes.php';
 
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
@@ -14,7 +17,7 @@
 
         $resultado = $ligacao->query($query_recuperar_usuario);
         $dadosRecupSenha = $resultado->fetch(PDO::FETCH_ASSOC); 
-
+      
         if (!empty($dadosRecupSenha)) {
             // Gere uma chave de recuperação para a senha
             $chave_recuperar_senha = password_hash($dadosRecupSenha['id_user'] . $dadosRecupSenha['nome'], PASSWORD_DEFAULT);
@@ -33,7 +36,6 @@
                 //link atualizar senha
                 
                     $link = "http://localhost/finance-app/src/atualizar_senha.php?chave=" . urlencode($chave_recuperar_senha);
-                    require __DIR__ . '/../vendor/autoload.php'; //incluir composer
 
                     // Criando uma instância do PHPMailer
                     $mail = new PHPMailer(true);
@@ -43,7 +45,7 @@
                         $mail->isSMTP();
                         $mail->Host = 'smtp.gmail.com';
                         $mail->SMTPAuth = true;
-                        $mail->Username = 'natanssilva10@gmail.com';
+                        $mail->Username = 'natanssilva1@gmail.com';
                         $mail->Password = 'moyp edpa ogof bqyt';
                         $mail->SMTPSecure = 'tls';  // 'tls' para o Gmail
                         $mail->Port = 587;  // Porta SMTP padrão do Gmail
@@ -63,6 +65,7 @@
 
                         // Envie o e-mail
                         $mail->send();
+
                         $response = [
                             'status' => 'true',
                             'message' => 'Foi enviado um email com instruções para realizar a recuperacao da senha',
@@ -70,7 +73,13 @@
                         ];
                        
                     } catch (Exception $e) {
-                        echo 'Erro ao enviar o e-mail: ' . $mail->ErrorInfo;
+                        $response = [
+                            'status' => 'E2',
+                            'message' => 'Erro ao enviar o e-mail',
+                            'alert' => $mail->ErrorInfo
+                        ];
+
+                       
                     }
 
                
