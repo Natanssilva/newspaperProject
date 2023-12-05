@@ -77,8 +77,7 @@ myForm = document
             }, 2800)
           } else {
             setTimeout(function erroDb() {
-              //função callback, ou seja uma função passada como argumento
-              // tirando a animação
+              
               button.innerHTML = 'Enviar'
               button.removeAttribute('disabled')
 
