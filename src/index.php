@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../dist/output.css">
     <script src="../js/login.js" defer></script>
     <script src="../js/password.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
 </head>
 
@@ -18,7 +19,7 @@
 
     <div x-data="{ show: true }" x-show="show" x-transition:enter="animate__animated animate__backInRight" class="bg-white p-8 rounded shadow-md sm:w-96 animate__animated animate__backInRight mx-auto">
         <h2 class="text-2xl font-bold mb-4 text-center">Login</h2>
-        <form id="form" action="processar_login.php" method="post">
+        <form id="form" method="post">
             <div class="relative mb-4">
                 <label for="email" class="block text-gray-700 text-sm font-semibold mb-2">Email</label>
 
@@ -34,7 +35,7 @@
                         <input type="password" id="senha" name="senha" class="input w-full bg-white" placeholder="********">
 
                         <div class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer">
-                            <div class="flex items-center h-full"> 
+                            <div class="flex items-center h-full">
                                 <img class="hide-password" src="../image/icons8-hide-password-30.png" alt="hide-password">
                                 <img class="show-password hidden" src="../image/icons8-show-password-30.png" alt="show-password">
                             </div>
@@ -44,13 +45,16 @@
             </div>
 
             <div class="text-center">
-                <button id="button-submit" type="submit" class="btn bg-black hover:bg-white text-white hover:text-black font-bold py-1 px-4 border-b-4 border-black  rounded w-full py-1">Entrar</button>
+                <button id="button-submit" type="submit" class="btn bg-black hover:bg-white text-white hover:text-black font-bold py-1 px-4 border-b-4 border-black  rounded w-full py-1" >Entrar
+                    
+                </button>
             </div>
+           
             <div class="text-center mt-4">
                 <a id="button-google" href="<?= 'api_google.php' ?>" class="btn bg-black hover:bg-white text-white hover:text-black font-bold py-1 px-4 border-b-4 border-black  rounded w-full py-1 flex items-center justify-center">
                     <img src="../image/google-icon-2048x2048-czn3g8x8.png" alt="Google Logo" class="w-6 h-6 mr-2">
                     Entrar com Google
-                    
+
                 </a>
             </div>
         </form>

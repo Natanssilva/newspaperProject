@@ -21,7 +21,6 @@ myForm = document
    
     
     erroEmail.innerHTML = mensagemErroEmail;
-    
     inputEmail.style.border = validarEmail ? '1px solid red' : '';
 
     

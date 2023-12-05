@@ -8,8 +8,8 @@
     <title>Newspaper</title>
     <link rel="stylesheet" href="../dist/output.css">
     <script src="../js/cadastro.js" defer></script>
-
     <script src="../js/password.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
 </head>
 
