@@ -39,3 +39,5 @@ $body = $response->getBody()->getContents();
 // Converter o JSON para um array associativo
 $top_headlines = json_decode($body, true);
 
+// Exibindo os resultados (teste)
+showArray($top_headlines);
