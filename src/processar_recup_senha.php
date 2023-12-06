@@ -35,7 +35,7 @@
 
                 //link atualizar senha
                 
-                    $link = "http://localhost/finance-app/src/atualizar_senha.php?chave=" . urlencode($chave_recuperar_senha);
+                    $link = "http://localhost/newspaperProject/src/atualizar_senha.php?chave=" . urlencode($chave_recuperar_senha);
 
                     // Criando uma instância do PHPMailer
                     $mail = new PHPMailer(true);
@@ -45,7 +45,7 @@
                         $mail->isSMTP();
                         $mail->Host = 'smtp.gmail.com';
                         $mail->SMTPAuth = true;
-                        $mail->Username = 'natanssilva1@gmail.com';
+                        $mail->Username = 'natanssilva10@gmail.com';
                         $mail->Password = 'moyp edpa ogof bqyt';
                         $mail->SMTPSecure = 'tls';  // 'tls' para o Gmail
                         $mail->Port = 587;  // Porta SMTP padrão do Gmail
