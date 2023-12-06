@@ -1,4 +1,8 @@
-<?php session_start() ?>
+<?php
+    include_once '../biblioteca/funcoes.php';
+    
+    session_start()
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,8 +49,12 @@
     <div class="min-h-screen flex items-center justify-center">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
             <?php
-            $maxNewsToShow = 5; // Defina o número máximo de notícias que você deseja mostrar
-            $visibleNews = array_slice($top_headlines['articles'], 0, $maxNewsToShow);
+            $maxNewsToShow = 5; //número máximo de notícias 
+            $visibleNews = array_slice($top_headlines['articles'], 0, $maxNewsToShow); 
+            //array_ slice pega uma parte do array : 1 parametro é o array que quer ser dividido
+            //  o parametro do meio é o indice q inicia a extração
+            // terceiro parametro é o numero de elementos que deve ser retirado
+
             ?>
 
             <?php foreach ($visibleNews as $article) : ?>
@@ -57,7 +65,7 @@
                         <p class="text-gray-700 text-sm"><?= $article['description'] ?></p>
                     </div>
                     <div class="p-4 flex justify-end">
-                        <a href="<?= $article['url'] ?>" class="btn btn-primary text-sm" target="_blank">Read More</a>
+                        <a href="<?= $article['url'] ?>" class="btn btn-primary text-sm" target="_blank">Ler sobre</a>
                     </div>
                 </div>
             <?php endforeach; ?>

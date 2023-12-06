@@ -40,9 +40,9 @@
         </div>
 
        
-        <div class="text-center">
+        <!-- <div class="text-center">
             <button id="button-logout" class="btn bg-black hover:bg-white text-white hover:text-black font-bold py-1 px-4 border-b-4 border-black rounded w-full">Sair</button>
-        </div>
+        </div> -->
     </div>
 
 </body>

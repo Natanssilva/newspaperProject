@@ -23,6 +23,5 @@ $senha = "";
     
 
 } catch (PDOException $statusDB) {
-    echo "Conexão mal sucedida";
     die();
 }
