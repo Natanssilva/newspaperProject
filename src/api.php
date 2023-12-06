@@ -24,7 +24,7 @@ $apiUrl = "https://newsapi.org/v2/everything?q=apple&from=2023-12-05&to=2023-12-
 
 
 // Configurar o cliente Guzzle
-$client = new Client();  
+$client = new Client();
 
 // Cria uma instância do cliente Guzzle. O Guzzle é uma biblioteca para fazer requisições HTTP de maneira eficiente em PHP.
 
@@ -40,4 +40,4 @@ $body = $response->getBody()->getContents();
 $top_headlines = json_decode($body, true);
 
 // Exibindo os resultados (teste)
-showArray($top_headlines);
+// showArray($top_headlines);
