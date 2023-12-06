@@ -18,7 +18,10 @@ $newsapi = new NewsApi($key); //Essa linha cria uma instância da classe NewsApi
 // A instância criada ($newsapi) será usada para fazer chamadas à API de notícias.
 
 
-$apiUrl =  "https://newsapi.org/v2/everything?q=apple&from=2023-12-05&to=2023-12-05&sortBy=popularity&apiKey=d2fe47092e4344a88acacc97cfb3bf04";
+
+$page = isset($_GET['page']) ? $_GET['page'] : 1;
+$apiUrl = "https://newsapi.org/v2/everything?q=apple&from=2023-12-05&to=2023-12-05&sortBy=popularity&page={$page}&apiKey=d2fe47092e4344a88acacc97cfb3bf04";
+
 
 // Configurar o cliente Guzzle
 $client = new Client();  
@@ -36,5 +39,3 @@ $body = $response->getBody()->getContents();
 // Converter o JSON para um array associativo
 $top_headlines = json_decode($body, true);
 
-// Exibindo os resultados (teste)
-// showArray($top_headlines);

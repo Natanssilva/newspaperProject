@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,28 +23,12 @@
     <?php include_once 'api.php' ?>
     <div class="navbar bg-base-100">
         <div class="navbar-start">
-            <div class="dropdown">
-                <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
-                    </svg>
-                </div>
-                <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                    <li><a>Homepage</a></li>
-                    <li><a>Portfolio</a></li>
-                    <li><a>About</a></li>
-                </ul>
-            </div>
         </div>
         <div class="navbar-center">
             <a href="#" class="text-xl">Newspaper</a>
         </div>
 
         <div class="navbar-end">
-            <div class="form-control">
-                <input type="text" placeholder="Search" class="mr-6  input input-bordered w-24 md:w-auto" />
-            </div>
-
             <div class="dropdown dropdown-end">
                 <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
                     <div class="w-10 rounded-full">
@@ -53,12 +38,10 @@
 
                 <ul tabindex="0" class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
                     <li>
-                        <a class="justify-between">
+                        <a href="profile.php" target="_blank" class="justify-between">
                             Profile
                         </a>
                     </li>
-                    <li><a>Settings</a></li>
-                    <li><a>Logout</a></li>
                 </ul>
             </div>
         </div>
@@ -73,9 +56,9 @@
 
             <?php foreach ($visibleNews as $article) : ?>
                 <div class="max-w-sm mx-auto bg-white rounded-md overflow-hidden shadow-lg transform hover:scale-105 transition-transform">
-                    <img class="w-full h-40 object-cover" src="<?= $article['urlToImage'] ?>" alt="<?= $article['title'] ?>">
+                    <img class="w-full h-32 object-cover" src="<?= $article['urlToImage'] ?>" alt="<?= $article['title'] ?>">
                     <div class="p-4">
-                        <h2 class="text-xl font-bold mb-2"><?= $article['title'] ?></h2>
+                        <h2 class="text-md font-bold mb-2"><?= $article['title'] ?></h2>
                         <p class="text-gray-700 text-sm"><?= $article['description'] ?></p>
                     </div>
                     <div class="p-4 flex justify-end">
@@ -85,8 +68,58 @@
             <?php endforeach; ?>
         </div>
     </div>
+    <div class=" flex items-center justify-center mb-4">
+        <button id="load-more" class="btn btn-primary">Ver Mais</button>
+    </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadMoreButton = document.getElementById('load-more');
+            const newsContainer = document.querySelector('.grid');
 
+            let page = 2; // Inicializa a página para carregar mais notícias
+            const newsPerPage = 6; // Número de notícias a serem carregadas por clique
+
+            loadMoreButton.addEventListener('click', async function() {
+                const apiUrl = `https://newsapi.org/v2/everything?q=apple&from=2023-12-05&to=2023-12-05&sortBy=popularity&page=${page}&apiKey=d2fe47092e4344a88acacc97cfb3bf04`;
+
+                try {
+                    const response = await fetch(apiUrl);
+                    const data = await response.json();
+
+                    // Verifique se há notícias para carregar
+                    if (data.articles.length > 0) {
+                        data.articles.slice(0, newsPerPage).forEach(article => {
+                            const newsCard = document.createElement('div');
+                            newsCard.classList.add('max-w-sm', 'mx-auto', 'bg-white', 'rounded-md', 'overflow-hidden', 'shadow-lg', 'transform', 'hover:scale-105', 'transition-transform');
+
+                            newsCard.innerHTML = `
+                            <img class="w-full h-32 object-cover" src="${article.urlToImage}" alt="${article.title}">
+                            <div class="p-4">
+                                <h2 class="text-md font-bold mb-2">${article.title}</h2>
+                                <p class="text-gray-700 text-sm">${article.description}</p>
+                            </div>
+                            <div class="p-4 flex justify-end">
+                                <a href="${article.url}" class="btn btn-primary text-sm" target="_blank">Read More</a>
+                            </div>
+                        `;
+
+                            newsContainer.appendChild(newsCard);
+                        });
+
+                        page++; 
+                    } else {
+                        // Não tem mais notícias para carregar,desativar ou ocultar o botão "
+                        loadMoreButton.disabled = true;
+                        loadMoreButton.style.display = 'none';
+                    }
+
+                } catch (error) {
+                    console.error('Erro ao carregar notícias:', error);
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

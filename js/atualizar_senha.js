@@ -57,7 +57,7 @@ let formAtualizar = document
                                     <span>${response.message}!</span>
                                 </div>`
 
-              // window.location.href = response.redirect
+              window.location.href = response.redirect
             }, 2800)
           } else {
             setTimeout(function erroDb() {

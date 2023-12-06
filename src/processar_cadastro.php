@@ -1,4 +1,5 @@
 <?php
+session_start(); // Inicia a sessão
 require_once 'bd.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') { //verifica se a solicitação http pra esse script foi realizada via post
@@ -21,6 +22,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { //verifica se a solicitação http p
     $resultado_cadastrar_usuario = $ligacao -> query($query_cadastrar_usuario);
 
     if ($resultado_cadastrar_usuario) {
+        $_SESSION['id_user'] = $novo_codigo;
+        $_SESSION['nome'] = $nome;
+        $_SESSION['sobrenome'] = $sobrenome;
+        $_SESSION['email'] = $email;
+
         $response = [
             'status' => 'true',
             'message' => 'usuario cadastrado',

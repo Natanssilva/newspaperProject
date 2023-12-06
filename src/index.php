@@ -50,13 +50,13 @@
                 </button>
             </div>
            
-            <div class="text-center mt-4">
+            <!-- <div class="text-center mt-4">
                 <a id="button-google" href="<?= 'api_google.php' ?>" class="btn bg-black hover:bg-white text-white hover:text-black font-bold py-1 px-4 border-b-4 border-black  rounded w-full py-1 flex items-center justify-center">
                     <img src="../image/google-icon-2048x2048-czn3g8x8.png" alt="Google Logo" class="w-6 h-6 mr-2">
                     Entrar com Google
 
                 </a>
-            </div>
+            </div> -->
         </form>
         <div class="container mx-auto px-2 mt-2">
             <a class="hover:underline text-black-500" href="recuperar_senha.php">Esqueceu a senha?</a>

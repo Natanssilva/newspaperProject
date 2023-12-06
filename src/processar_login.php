@@ -1,4 +1,5 @@
 <?php
+session_start(); // Inicia a sessão
 require_once 'bd.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -27,6 +28,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if ($loginEfetuado) {
+
+        $_SESSION['id_user'] = $info_usuario['id_user'];
+        $_SESSION['nome'] = $info_usuario['nome'];
+        $_SESSION['sobrenome'] = $info_usuario['sobrenome'];
+        $_SESSION['email'] = $info_usuario['email'];
+
+
+
+
         $response = [
             'status' => 'true',
             'message' => 'login efetuado com sucesso',

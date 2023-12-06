@@ -19,7 +19,7 @@ $stmt->execute();
 if ($stmt->rowCount() === 0) { //validando caso usuario digite algo no link, terá um erro
     echo "<h1>ERRO! LINK ALTERADO";
     header('refresh:3;url=index.php'); //atrasa o redirecionamento para que o erro seja lido
-    // die();
+    die();
 }
 ?>
 
