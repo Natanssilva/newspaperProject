@@ -8,7 +8,8 @@ O projeto **NewsPaper** é uma aplicação web que oferece aos usuários a capac
 
 - **Backend:** PHP
 - **Banco de Dados:** MySQL
-- **Frontend:** HTML, CSS, JavaScript
+- **Frontend:** HTML, CSS, JavaScript,Tailwind CSS
+- ** Composer : PHP mailer
 
 ## Funcionalidades Principais
 
@@ -35,10 +36,9 @@ O projeto **NewsPaper** é uma aplicação web que oferece aos usuários a capac
 
 ### Instalação
 
-1. Clone o repositório do projeto: `git clone [URL do Repositório]`
-2. Importe o banco de dados fornecido (`database.sql`) para o MySQL.
-3. Configure as credenciais do banco de dados no arquivo `config.php`.
-4. Inicie o servidor web.
+1. Clone o repositório do projeto: `git clone [https://github.com/Natanssilva/newspaperProject.git]`
+2. Importe o banco de dados fornecido (`dump-bd.sql`) para o MySQL.
+3. Inicie o servidor web.
 
 ## API de Notícias
 
@@ -56,8 +56,8 @@ O projeto consome a API de notícias da NewsAPI para obter notícias da Apple. C
 
 O código-fonte do projeto está organizado da seguinte forma:
 
-- **`/backend`**: Contém os arquivos PHP responsáveis pela lógica de backend.
-- **`/frontend`**: Inclui os arquivos HTML, CSS e JavaScript para a interface do usuário.
+- **`/src`**: Contém os arquivos PHP responsáveis pela lógica de backend e HTML.
+- **`/js`**: Inclui os arquivos Javascript para lidar com Front-End.
 
 ## Contribuição
 
